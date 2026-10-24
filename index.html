@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Maratha Dynasty: Shivaji & Sambhaji Maharaj</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sun-gold: #FFB100;
+            --vibrant-saffron: #FF4C00;
+            --deep-crimson: #7A0016;
+            --solar-glow: rgba(255, 177, 0, 0.15);
+            --bg-dark: #0B090A;
+            --text-light: #F5F3F4;
+            --text-muted: #B1A7A6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sun background graphic */
+        .sun-bg {
+            position: absolute;
+            top: -10vw;
+            right: -10vw;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, var(--vibrant-saffron) 0%, var(--sun-gold) 50%, transparent 70%);
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        header {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        /* Large radiant sun emblem style */
+        .sun-emblem {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sun-gold), var(--vibrant-saffron));
+            box-shadow: 0 0 30px var(--vibrant-saffron);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: 1.1;
+            background: linear-gradient(135deg, #FFF 30%, var(--sun-gold) 70%, var(--vibrant-saffron));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--vibrant-saffron);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            animation: pulse 2s infinite;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6rem;
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255,76,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            border-top: 3px solid var(--vibrant-saffron);
+            padding: 3rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-tag {
+            font-family: 'Cinzel', serif;
+            color: var(--sun-gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #FFF;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .quote-box {
+            border-left: 2px solid var(--sun-gold);
+            padding-left: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 6rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sun-bg"></div>
+
+    <header>
+        <div class="sun-emblem"></div>
+        <h1>Chhatrapati</h1>
+        <div class="subtitle">Shivaji & Sambhaji</div>
+        <div class="scroll-indicator">The Eternal Glow of Swarajya</div>
+    </header>
+
+    <main>
+        <div class="grid">
+            <!-- Shivaji Maharaj Section -->
+            <section class="card">
+                <span class="card-tag">The Sun of Swarajya</span>
+                <h2>Shivaji Shahaji Bhonsle</h2>
+                <p>The founding light of the Maratha Empire, Chhatrapati Shivaji Maharaj carved out an independent enclave from declining sultanates, establishing a legacy of strategic brilliance and progressive governance.</p>
+                <div class="quote-box">
+                    "Freedom is a boon, which everyone has the right to enjoy."
+                </div>
+                <p>His innovative military tactics, fort infrastructure architectures, and radical naval strategies mirrored the fierce, unyielding energy of a midday sun.</p>
+            </section>
+
+            <!-- Sambhaji Maharaj Section -->
+            <section class="card">
+                <span class="card-tag">The Radiant Successor</span>
+                <h2>Sambhaji Shivaji Bhonsle</h2>
+                <p>The second Chhatrapati, Chhatrapati Sambhaji Maharaj, inherited a colossal crown and defended it with supreme valor, facing multi-front conflicts against empires with unmatched defiance.</p>
+                <div class="quote-box">
+                    "Even if the sky falls, the resolve of a warrior remains unshaken."
+                </div>
+                <p>A brilliant scholar and undefeated military commander, his fierce sacrifice cemented a structural revolution that kept the fire of independence burning bright.</p>
+            </section>
+        </div>
+    </main>
+
+
+</body>
+</html>
