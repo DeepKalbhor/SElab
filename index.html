@@ -3,180 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swarajya Legends: Shivaji & Sambhaji Maharaj</title>
+    <title>The Maratha Dynasty: Shivaji & Sambhaji Maharaj</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color-1: #ff5e62; /* Sunset Coral */
-            --bg-color-2: #ff9966; /* Sunset Orange */
-            --text-light: #f8f9fa;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --card-border: rgba(255, 255, 255, 0.15);
+            --sun-gold: #FFB100;
+            --vibrant-saffron: #FF4C00;
+            --deep-crimson: #7A0016;
+            --solar-glow: rgba(255, 177, 0, 0.15);
+            --bg-dark: #0B090A;
+            --text-light: #F5F3F4;
+            --text-muted: #B1A7A6;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-light);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
+            line-height: 1.6;
             overflow-x: hidden;
-            background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2));
-            transition: background 0.1s ease;
+        }
+
+        /* Sun background graphic */
+        .sun-bg {
+            position: absolute;
+            top: -10vw;
+            right: -10vw;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, var(--vibrant-saffron) 0%, var(--sun-gold) 50%, transparent 70%);
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        }
-
-        header p {
-            font-size: 1rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        .container {
+            position: relative;
+            min-height: 90vh;
             display: flex;
-            gap: 2rem;
-            max-width: 1000px;
-            width: 100%;
+            flex-direction: column;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        /* Large radiant sun emblem style */
+        .sun-emblem {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sun-gold), var(--vibrant-saffron));
+            box-shadow: 0 0 30px var(--vibrant-saffron);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: 1.1;
+            background: linear-gradient(135deg, #FFF 30%, var(--sun-gold) 70%, var(--vibrant-saffron));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--vibrant-saffron);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            animation: pulse 2s infinite;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6rem;
+            }
         }
 
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            flex: 1;
-            min-width: 300px;
-            max-width: 450px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-            cursor: pointer;
+            background: linear-gradient(180deg, rgba(255,76,0,0.03) 0%, rgba(0,0,0,0) 100%);
+            border-top: 3px solid var(--vibrant-saffron);
+            padding: 3rem 2rem;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
         }
 
-        .tag {
-            font-size: 0.75rem;
+        .card-tag {
+            font-family: 'Cinzel', serif;
+            color: var(--sun-gold);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.6;
             margin-bottom: 0.5rem;
             display: block;
         }
 
-        .card h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 0.5rem;
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #FFF;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.9;
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
         }
 
+        .quote-box {
+            border-left: 2px solid var(--sun-gold);
+            padding-left: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
         footer {
-            margin-top: 4rem;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            letter-spacing: 1px;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 6rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
+    <div class="sun-bg"></div>
+
     <header>
-        <h1>Swarajya</h1>
-        <p>Move your mouse or touch the screen to interact with the sunset horizon.</p>
+        <div class="sun-emblem"></div>
+        <h1>Chhatrapati</h1>
+        <div class="subtitle">Shivaji & Sambhaji</div>
+        <div class="scroll-indicator">The Eternal Glow of Swarajya</div>
     </header>
 
-    <main class="container">
-        <!-- Chhatrapati Shivaji Maharaj Card -->
-        <article class="card">
-            <span class="tag">The Founder</span>
-            <h2>Chhatrapati Shivaji Maharaj</h2>
-            <p>
-                Visionary strategist and the legendary founder of the Maratha Empire. 
-                He revolutionized warfare by perfecting <b>Ganimi Kava</b> (guerrilla tactics) 
-                and built a powerful naval force, establishing an independent, self-ruling 
-                sovereign state built on justice and equality.
-            </p>
-        </article>
+    <main>
+        <div class="grid">
+            <!-- Shivaji Maharaj Section -->
+            <section class="card">
+                <span class="card-tag">The Sun of Swarajya</span>
+                <h2>Shivaji Shahaji Bhonsle</h2>
+                <p>The founding light of the Maratha Empire, Chhatrapati Shivaji Maharaj carved out an independent enclave from declining sultanates, establishing a legacy of strategic brilliance and progressive governance.</p>
+                <div class="quote-box">
+                    "Freedom is a boon, which everyone has the right to enjoy."
+                </div>
+                <p>His innovative military tactics, fort infrastructure architectures, and radical naval strategies mirrored the fierce, unyielding energy of a midday sun.</p>
+            </section>
 
-        <!-- Chhatrapati Sambhaji Maharaj Card -->
-        <article class="card">
-            <span class="tag">The Successor</span>
-            <h2>Chhatrapati Sambhaji Maharaj</h2>
-            <p>
-                The second Chhatrapati, renowned for his fierce courage and profound intellect. 
-                Undefeated in over 120 battles, he successfully protected the realm against 
-                overwhelming external empires, leaving behind a legacy of supreme sacrifice and 
-                unwavering valor.
-            </p>
-        </article>
+            <!-- Sambhaji Maharaj Section -->
+            <section class="card">
+                <span class="card-tag">The Radiant Successor</span>
+                <h2>Sambhaji Shivaji Bhonsle</h2>
+                <p>The second Chhatrapati, Chhatrapati Sambhaji Maharaj, inherited a colossal crown and defended it with supreme valor, facing multi-front conflicts against empires with unmatched defiance.</p>
+                <div class="quote-box">
+                    "Even if the sky falls, the resolve of a warrior remains unshaken."
+                </div>
+                <p>A brilliant scholar and undefeated military commander, his fierce sacrifice cemented a structural revolution that kept the fire of independence burning bright.</p>
+            </section>
+        </div>
     </main>
 
-    <footer>
-        Minimalist Tribute Template
-    </footer>
 
-    <script>
-        // Interactive Sunset Gradient Engine
-        document.addEventListener('mousemove', (e) => {
-            // Calculate mouse position percentages
-            const xPercentage = (e.clientX / window.innerWidth) * 100;
-            const yPercentage = (e.clientY / window.innerHeight) * 100;
-            
-            // Dynamically morph sunset colors based on mouse coordinates
-            const hue1 = 350 + (xPercentage * 0.2); // Transitions between Pink/Red ranges
-            const hue2 = 15 + (yPercentage * 0.3);  // Transitions between Deep Orange/Gold ranges
-            
-            document.body.style.background = `linear-gradient(${135 + (xPercentage * 0.1)}deg, hsl(${hue1}, 100%, 65%), hsl(${hue2}, 100%, 60%))`;
-        });
-
-        // Touch support for mobile interaction
-        document.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            const xPercentage = (touch.clientX / window.innerWidth) * 100;
-            const yPercentage = (touch.clientY / window.innerHeight) * 100;
-            
-            const hue1 = 350 + (xPercentage * 0.2);
-            const hue2 = 15 + (yPercentage * 0.3);
-            
-            document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 100%, 65%), hsl(${hue2}, 100%, 60%))`;
-        });
-    </script>
 </body>
 </html>
